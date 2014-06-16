@@ -1,0 +1,693 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+" Plugins to investigate
+
+" Plugins 'joonty/vdebug'                   " https://github.com/joonty/vdebug
+
+" FILE BROWSING
+Plugin 'jlanzarotta/bufexplorer'            " https://github.com/jlanzarotta/bufexplorer
+Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'xolox/vim-session'                  " https://github.com/xolox/vim-session
+Plugin 'majutsushi/tagbar'                  " https://github.com/majutsushi/tagbar
+Plugin 'tpope/vim-vinegar'                  " https://github.com/tpope/vim-vinegar
+
+" SYNTAX
+Plugin 'Townk/vim-autoclose'                " https://github.com/Townk/vim-autoclose
+Plugin 'tpope/vim-commentary'               " https://github.com/tpope/vim-commentary
+Plugin 'junegunn/vim-easy-align'            " https://github.com/junegunn/vim-easy-align
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-surround'                 " https://github.com/tpope/vim-surround
+Plugin 'scrooloose/syntastic'
+Plugin '2072/vim-syntax-for-PHP.git'        " https://github.com/2072/vim-syntax-for-PHP
+" Plugin 'xolox/vim-easytags'
+" Plugin 'othree/html5-syntax.vim'
+" Plugin 'leshill/vim-json'
+" Plugin 'pangloss/vim-javascript'
+" Plugin '2072/PHP-Indenting-for-VIm'       " http://www.2072productions.com/to/phpindent.txt
+" Plugin 'captbaritone/better-indent-support-for-php-with-html'
+                                            " https://github.com/captbaritone/better-indent-support-for-php-with-html"
+" Plugin 'stephpy/vim-php-cs-fixer'         " https://github.com/stephpy/vim-php-cs-fixer
+                                            " Also need: https://github.com/fabpot/PHP-CS-Fixer"
+                                            " https://gist.github.com/KazuakiM/11045462"
+
+" GIT
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'airblade/vim-gitgutter'             " https://github.com/airblade/vim-gitgutter
+
+" CODE COMPLETION
+Plugin 'Shougo/neocomplete.vim'             " https://github.com/Shougo/neocomplete.vim
+Plugin 'Shougo/neocomplcache.vim'           " https://github.com/Shougo/neocomplcache.vim
+Plugin 'Shougo/vimproc.vim'                 " https://github.com/Shougo/vimproc.vim
+Plugin 'shawncplus/phpcomplete.vim'         " https://github.com/shawncplus/phpcomplete.vim
+" Plugin 'ervandew/supertab'                  " https://github.com/ervandew/supertab
+" Plugin 'SirVer/ultisnips'                   " https://github.com/SirVer/ultisnips
+" Plugin 'honza/vim-snippets'                 " https://github.com/honza/vim-snippets
+Plugin 'Valloric/YouCompleteMe'             " https://github.com/Valloric/YouCompleteMe
+Plugin 'joonty/vim-taggatron'             " https://github.com/joonty/vim-taggatron
+
+" FUZZY SEARCH
+Plugin 'rking/ag.vim'                       " https://github.com/rking/ag.vim
+Plugin 'fisadev/vim-ctrlp-cmdpalette'       " https://github.com/fisadev/vim-ctrlp-cmdpalette
+Plugin 'Lokaltog/vim-easymotion'            " https://github.com/Lokaltog/vim-easymotion
+Plugin 'tpope/vim-unimpaired'               " https://github.com/tpope/vim-unimpaired
+Plugin 'Shougo/unite.vim'                   " https://github.com/Shougo/unite.vim
+Plugin 'thinca/vim-unite-history'           " https://github.com/thinca/vim-unite-history
+
+" MISC
+Plugin 'xolox/vim-misc'                     " https://github.com/xolox/vim-misc
+
+" UI
+Plugin 'bling/vim-airline'                  " https://github.com/bling/vim-airline
+Plugin 't9md/vim-choosewin'                 " https://github.com/t9md/vim-choosewin
+Plugin 'flazz/vim-colorschemes'             " https://github.com/flazz/vim-colorschemes
+Plugin 'nathanaelkane/vim-indent-guides'    " https://github.com/nathanaelkane/vim-indent-guides
+Plugin 'kien/tabman.vim'                    " https://github.com/kien/tabman.vim
+Plugin 'godlygeek/tabular'                  " https://github.com/godlygeek/tabular'
+Plugin 'vim-scripts/ZoomWin'                " https://github.com/vim-scripts/ZoomWin
+
+
+" https://github.com/michaeljsmith/vim-indent-object
+" https://github.com/fisadev/dragvisuals.vim
+" http://juan.boxfi.com/vim-plugins/#tasklist
+" IndexedSearch : shows  'Nth match out of M'  at every search (index of match+total # matches)
+" http://www.vim.org/scripts/script.php?script_id=1682
+" matchit.zip : extended % matching for HTML, LaTeX
+" http://www.vim.org/scripts/script.php?script_id=39
+" YankRing.vim : Maintains a history of previous yanks, changes and deletes
+" http://www.vim.org/scripts/script.php?script_id=1234
+
+" http://stackoverflow.com/questions/21743323/youcompleteme-freezes-when-used-with-python-mode
+let g:pymode_rope_complete_on_dot = 0
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+"
+set number                    " Enable line numbers
+set ruler                     " Turn on the ruler
+syntax on                     " Syntax highlighting
+
+if has("autocmd")
+    autocmd FileType php let &formatprg="php_beautifier"
+endif
+
+map <leader>p :CtrlPCmdPalette<CR>
+
+" Automatic reloading of .vimrc
+autocmd! bufwritepost .vimrc source %
+autocmd BufRead,BufNewFile *.txt set syntax=markdown
+
+
+" ===== COPY & PASTE
+" When you want to paste large blocks of code into vim, press F2 before you
+" paste. At the bottom you should see ``-- INSERT (paste) --``.
+set pastetoggle=<F2>
+set clipboard=unnamed
+
+" ===== SESSIONS
+let g:session_directory = "~/.vim/sessions"
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_command_aliases = 1
+nnoremap <leader>So :OpenSession-
+nnoremap <leader>Ss :SaveSession-
+nnoremap <leader>Sd :DeleteSession<CR>
+nnoremap <leader>Sc :CloseSession<CR>
+
+
+" Mouse and backspace
+" set mouse=a " on OSX press ALT and click
+set bs=2 " make backspace behave like normal again
+
+"allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+let @h=":tabnew ~/devdocs/vim/vim_crib.txt"
+
+" Rebind <Leader> key
+let mapleader = "\<SPACE>"
+let g:mapleader = "\<Space>"
+
+
+" VERY use!
+" nnoremap <Tab> <Esc>
+" vnoremap <Tab> <Esc>gV
+" onoremap <Tab> <Esc>
+" inoremap <Tab> <Esc>`^
+" inoremap <Leader><Tab> <Tab>
+" gccunmap <Tab>
+
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Bi-directional find motion
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-s)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+" nmap s <Plug>(easymotion-s2)
+
+" Turn on case sensitive feature
+" let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+
+" Enable omni completion (<C-X><C-O> when in Insert mode)
+"set omnifunc=syntaxcomplete#Complete
+" Autocomplete behavior - complete as you type, use Enter to select.
+"set completeopt=longest,menuone
+
+
+" Folding
+set foldmethod=indent
+set foldnestmax=1
+set nofoldenable "don't fold by default
+" nnoremap <space> zA
+" vnoremap <space> zA
+
+" When opening the file, unfold all. Fold all with zM
+au BufRead * normal zR
+noremap <F11> :bprev<CR>
+noremap <F12> :bnext<CR>
+
+" Not sure what this is about
+au WinLeave * set nocursorline
+au WinEnter * set cursorline
+
+"map to bufexplorer
+nnoremap <leader>b :BufExplorer<cr>
+"map to bufergator
+let g:buffergator_suppress_keymaps = 1
+nnoremap <leader>bg :BuffergatorToggle<cr>
+
+"disable resizing when calling buffergator
+let g:buffergator_autoexpand_on_split = 0
+
+
+
+
+nnoremap . <NOP>
+set wildmode=list:longest "make cmdline tab completion similar to bash
+set wildmenu "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set autoread " reload file when changes happen in other editors
+
+set formatoptions-=o "dont continue comments when pushing o/O
+
+"vertical/horizontal scroll off settings
+set scrolloff=3
+set sidescrolloff=7
+set sidescroll=1
+
+
+"hide buffers when not displayed
+set hidden
+
+
+" Bind nohl
+" Removes highlight of your last search
+" ``<C>`` stands for ``CTRL`` and therefore ``<C-n>`` stands for ``CTRL+n``
+noremap <C-n> :nohl<CR>
+vnoremap <C-n> :nohl<CR>
+inoremap <C-n> :nohl<CR>
+
+" Quicksave command
+noremap <C-Z> :update<CR>
+vnoremap <C-Z> <C-C>:update<CR>
+inoremap <C-Z> <C-O>:update<CR>
+
+" Quick quit command
+noremap <Leader>e :quit<CR> " Quit current window
+noremap <Leader>E :qa!<CR> " Quit all windows
+
+" bind Ctrl+<movement> keys to move around the windows, instead of using
+" Ctrl+w + <movement>
+" Every unnecessary keystroke that can be saved is good for your health :)
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+" Turn off bells
+set noerrorbells visualbell t_vb=
+
+" easier moving between tabs
+map <Leader>w <esc>:ChooseWin<CR>
+map <Leader>t <esc>:TMToggle<CR>
+map <Leader>n <esc>:tabprevious<CR>
+map <Leader>m <esc>:tabnext<CR>
+
+" map sort function to a key
+vnoremap <Leader>s :sort<CR>
+
+
+" Show whitespace
+" MUST be inserted BEFORE the colorscheme command
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+au InsertLeave * match ExtraWhitespace /\s\+$/
+
+
+
+" Color scheme
+set term=xterm
+set t_Co=256
+" let &t_AB="\e[48;5;%dm"
+" let &t_AF="\e[38;5;%dm"
+syntax on
+" let g:solarized_termcolors=256
+" let g:solarized_underline=0
+" colorscheme wombat256mod
+"dont load csapprox if there is no gui support - silences an annoying warning
+let g:CSApprox_loaded = 1
+syntax enable
+set background=dark
+" set background=light
+" colorscheme github
+" colorscheme zenburn
+color molokai " https://github.com/tomasr/molokai
+
+set visualbell t_vb= "disable visual bell
+
+
+
+" Enable syntax highlighting
+" You need to reload this file for the change to apply
+filetype off
+filetype plugin indent on
+if has("autocmd")
+  " Drupal *.module and *.install files.
+  augroup module
+    autocmd BufRead,BufNewFile *.php set filetype=php
+    autocmd BufRead,BufNewFile *.module set filetype=php
+    autocmd BufRead,BufNewFile *.install set filetype=php
+    autocmd BufRead,BufNewFile *.test set filetype=php
+    autocmd BufRead,BufNewFile *.inc set filetype=php
+    autocmd BufRead,BufNewFile *.profile set filetype=php
+    autocmd BufRead,BufNewFile *.view set filetype=php
+  augroup END
+  autocmd BufNewFile,BufRead *.twig   set syntax=html
+endif
+" UltiSnipsAddFiletype drupal
+syntax on
+set fileformats=unix        "Use Unix line endings
+
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+
+imap <F1> <esc>
+
+" geometry
+"set lines=50 columns=120
+
+" Showing line numbers and length
+set number " show line numbers
+set tw=79 " width of document (used by gd)
+set nowrap " don't automatally wrap on load
+set showbreak=... " visual cue for wrapping lines
+set fo-=t " don't automatically wrap text when typing
+set colorcolumn=80
+set relativenumber
+highlight ColorColumn ctermbg=233
+
+"try to make possible to navigate within lines of wrapped lines
+nmap <Down> gj
+nmap <Up> gk
+set fo=l
+
+"Move line up/down
+nnoremap <leader>k :move-2<CR>==
+nnoremap <leader>j :move+<CR>==
+xnoremap <leader>k :move-2<CR>gv=gv
+xnoremap <leader>j :move'>+<CR>gv=gv
+
+"statusline setup
+"set statusline=%f "tail of the filename
+
+"Git
+"set statusline+=%{fugitive#statusline()}
+
+"set statusline+=%= "left/right separator
+"set statusline+=%c, "cursor column
+"set statusline+=%l/%L "cursor line/total lines
+"set statusline+=\ %P "percent through file
+set laststatus=2
+set shiftround
+
+" easier formatting of paragraphs
+
+" easier formatting of paragraphs
+vmap Q gq
+nmap Q gqap
+
+" ===== BLOCK INDENT/UNINDENT
+vmap < <gv
+vmap > >gv
+
+" Useful settings
+set history=1000
+set undolevels=700
+
+
+" Real programmers don't use TABs but spaces
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+set expandtab
+
+" Make search case insensitive
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set ic
+
+
+" Disable stupid backup and swap files - they trigger too many events
+" for file system watchers
+set nobackup
+set nowritebackup
+set noswapfile
+
+
+" Turn off commenting next line
+set formatoptions=1         "Don't wrap text after a one-letter word
+set formatoptions-=cro
+
+" Enforce consistent line endings: if 'ff' is set to "unix" and there are any
+" stray '\r' characters at ends of lines, then automatically remove them. See
+" $VIMRUNTIME/indent/php.vim .
+let PHP_removeCRwhenUnix = 1
+
+" Persistent Undo (vim 7.3 and later)
+if exists('&undofile') && !&undofile
+  set undodir=~/.vim_runtime/undodir
+  set undofile
+endif
+
+
+" Misc
+set showmode " show current mode down the bottom
+set showcmd " show commands while they're being typed
+set showmatch
+set cursorline
+set nohls is magic
+set ts=4
+" set listchars=tab:».,eol:¶,trail:-
+set listchars=
+set list
+set tabstop=2
+set shiftwidth=2
+set smartindent
+set expandtab
+set number
+set encoding=utf-8
+set autoindent
+
+" allow writing to files with root priviledges
+cmap w!! w !sudo tee % > /dev/null %
+
+"snipmate setup
+
+"visual search mappings
+function! s:VSetSearch()
+    let temp = @@
+    norm! gvy
+    let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+    let @@ = temp
+endfunction
+vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
+vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
+
+
+"jump to last cursor position when opening a file
+"dont do it when writing a commit log entry
+autocmd BufReadPost * call SetCursorPosition()
+function! SetCursorPosition()
+    if &filetype !~ 'commit\c'
+        if line("'\"") > 0 && line("'\"") <= line("$")
+            exe "normal! g`\""
+            normal! zz
+        endif
+    end
+endfunction
+
+
+"define :HighlightLongLines command to highlight the offending parts of
+"lines that are longer than the specified length (defaulting to 80)
+command! -nargs=? HighlightLongLines call s:HighlightLongLines('<args>')
+function! s:HighlightLongLines(width)
+    let targetWidth = a:width != '' ? a:width : 79
+    if targetWidth > 0
+        exec 'match Todo /\%>' . (targetWidth) . 'v/'
+    else
+        echomsg "Usage: HighlightLongLines [natural number]"
+    endif
+endfunction
+
+" Strip trailing whitespace
+function! <SID>StripTrailingWhitespaces()
+" Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+" Do the business:
+    %s/\s\+$//e
+" Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+"key mapping for window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+
+"key mapping for tab navigation
+nmap <S-Tab> gt
+nmap <C-S-Tab> gT
+
+
+"mark syntax errors with :signs
+let g:syntastic_enable_signs=1
+
+
+map <leader>x :NERDTreeToggle<CR>
+autocmd vimenter * if !argc() | NERDTree | endif
+let NERDTreeShowHidden=1
+
+" ctrlp performance tuning
+" http://stackoverflow.com/questions/21346068/slow-performance-on-ctrlp-it-doesnt-work-to-ignore-some-folders
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+if executable('ag')
+    let g:ackprg = "ag --nogroup --column"
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
+" Not clear on the purpose of this.
+if exists("g:ctrl_user_command")
+      unlet g:ctrlp_user_command
+  endif
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/\.git/*
+
+" Useful mappings for managing tabs
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+
+" Opens a new tab with the current buffer's path
+" Super useful when editing files in the same directory
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+
+" Switch CWD to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+" Specify the behavior when switching between buffers
+try
+  set switchbuf=useopen,usetab,newtab
+  set stal=2
+catch
+endtry
+
+
+
+" UltiSnips
+" http://stackoverflow.com/a/18685821/913295
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'snippets']
+function! g:UltiSnips_Complete()
+    call UltiSnips#ExpandSnippet()
+    if g:ulti_expand_res == 0
+        if pumvisible()
+            return "\<C-n>"
+        else
+            call UltiSnips#JumpForwards()
+            if g:ulti_jump_forwards_res == 0
+               return "\<TAB>"
+            endif
+        endif
+    endif
+    return ""
+endfunction
+
+"au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+"let g:UltiSnipsJumpForwardTrigger="<tab>"
+"let g:UltiSnipsListSnippets="<c-e>"
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" this mapping Enter key to <C-y> to chose the current highlight item
+" and close the selection list, same as other IDEs.
+" CONFLICT with some plugins like tpope/Endwise
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+
+" YouComleteMe
+" http://www.alexeyshmalko.com/2014/youcompleteme-ultimate-autocomplete-plugin-for-vim/
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
+
+
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='molokai'
+let g:airline#extensions#tabline#show_buffers = 0
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Nerd Tree
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let NERDTreeIgnore=['\~$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+:nmap ,e :NERDTreeToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => CtrlP
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+highlight Pmenu ctermbg=238 gui=bold
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+let g:ctrlp_working_path_mode = 'ra' " search for nearest ancestor like .git, .hg, and the directory of the current file
+let g:ctrlp_match_window_bottom = 1 " show the match window at the top of the screen
+let g:ctrlp_max_height = 8 " maxiumum height of match window
+let g:ctrlp_switch_buffer = 'et' " jump to a file if it's open already
+let g:ctrlp_use_caching = 1 " enable caching
+let g:ctrlp_clear_cache_on_exit=0 " speed up by not removing clearing cache evertime
+let g:ctrlp_show_hidden = 1 " show me dotfiles
+let g:ctrlp_mruf_max = 250 " number of recently opened files
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Unite
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:unite_source_history_yank_enable = 1
+let g:unite_data_directory='~/.vim/.cache/unite'
+let g:unite_source_rec_max_cache_files=5000
+let g:unite_enable_start_insert = 1
+let g:unite_split_rule = "botright"
+let g:unite_force_overwrite_statusline = 0
+let g:unite_winheight = 10
+
+call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+      \ 'ignore_pattern', join([
+      \ '\.git/',
+      \ 'git5/.*/review/',
+      \ 'google/obj/',
+      \ ], '\|'))
+
+" Use the fuzzy matcher for everything
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+
+" Use the rank sorter for everything
+call unite#filters#sorter_default#use(['sorter_rank'])
+
+nnoremap <space>/ :Unite grep:.<cr>
+nnoremap <space>y :Unite history/yank<cr>
+nnoremap <leader>f :Unite file_rec<cr>
+nnoremap <leader>c :Unite colorscheme -auto-preview<cr>
+
+autocmd FileType unite call s:unite_settings()
+
+function! s:unite_settings()
+  let b:SuperTabDisabled=1
+"imap <buffer> <C-j> <NOP>
+  imap <buffer> <C-j> <Plug>(unite_select_next_line)
+  imap <buffer> <C-k> <Plug>(unite_select_previous_line)
+  imap <silent><buffer><expr> <C-x> unite#do_action('split')
+  imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+  imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
+
+  nmap <buffer> <ESC> <Plug>(unite_exit)
+endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Airline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:bufferline_echo=0
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Supertab + Omnicomplete
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:SuperTabDefaultCompletionType = "context"
+let g:clang_complete_copen = 1
+let g:clang_snippets = 1
+let g:clang_use_library = 1
+map <leader>a :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+set omnifunc=syntaxcomplete#Complete " override built-in C omnicomplete with C++ OmniCppComplete plugin
+let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_DisplayMode = 1
+let OmniCpp_ShowScopeInAbbr = 0 "do not show namespace in pop-up
+let OmniCpp_ShowPrototypeInAbbr = 1 "show prototype in pop-up
+let OmniCpp_ShowAccess = 1 "show access in pop-up
+let OmniCpp_SelectFirstItem = 1 "select first item in pop-up
+set completeopt=menuone,menu,longest
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+
+
