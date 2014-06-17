@@ -30,6 +30,7 @@ ln -sf /usr/local/etc/dotfiles/.vimrc /home/vagrant/.vimrc
 ln -sf /usr/local/etc/dotfiles/.vim /home/vagrant/.vim
 ln -sf /usr/local/etc/dotfiles/.bash_aliases /home/vagrant/.bash_aliases
 ln -sf /usr/local/etc/dotfiles/.bashrc /home/vagrant/.bashrc
+ln -sf /usr/local/etc/dotfiles/.gitconfig /home/vagrant/.gitconfig
 sudo chown -R vagrant:vagrant /home/vagrant/.vimrc 
 sudo chown -R vagrant:vagrant /home/vagrant/.vim
 sudo chown -R vagrant:vagrant /home/vagrant/.bash_aliases
@@ -42,4 +43,5 @@ ln -sf /usr/local/etc/dotfiles/.vimrc /root/.vimrc
 ln -sf /usr/local/etc/dotfiles/.vim /root/.vim
 ln -sf /usr/local/etc/dotfiles/.bash_aliases /root/.bash_aliases
 ln -sf /usr/local/etc/dotfiles/.bashrc /root/.bashrc
+ln -sf /usr/local/etc/dotfiles/.gitconfig /root/.gitconfig
 ```
