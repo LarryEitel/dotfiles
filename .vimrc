@@ -298,7 +298,7 @@ syntax on
 let g:CSApprox_loaded = 1
 syntax enable
 set background=dark
-color molokai " https://github.com/tomasr/molokai
+" color molokai " https://github.com/tomasr/molokai
 
 " Show whitespace
 " MUST be inserted BEFORE the colorscheme command
@@ -363,18 +363,12 @@ let g:unite_split_rule = "botright"
 let g:unite_force_overwrite_statusline = 0
 let g:unite_winheight = 10
 
-call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
-      \ 'ignore_pattern', join([
-      \ '\.git/',
-      \ 'git5/.*/review/',
-      \ 'google/obj/',
-      \ ], '\|'))
 
 " Use the fuzzy matcher for everything
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
+" call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
 " Use the rank sorter for everything
-call unite#filters#sorter_default#use(['sorter_rank'])
+" call unite#filters#sorter_default#use(['sorter_rank'])
 
 nnoremap <space>/ :Unite grep:.<cr>
 nnoremap <space>y :Unite history/yank<cr>
