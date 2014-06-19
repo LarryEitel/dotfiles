@@ -29,7 +29,7 @@ alias vbashrc='vi /vagrant/dotfiles/.bashrc && source /vagrant/dotfiles/.bashrc'
 alias vrc='sudo vi /vagrant/dotfiles/.vimrc'
 
 
-alias Areload='sudo apache2ctl reload'
+alias Areload='sudo service apache2 reload'
 alias Arestart='sudo apache2ctl restart'
 alias Astop='sudo apache2ctl stop'
 alias Astart='sudo apache2ctl start'
