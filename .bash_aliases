@@ -22,11 +22,20 @@ alias :q="exit"
 alias mktar="tar -pvczf"
 alias untar="tar -zxvf"
 
-alias aliases='more ~/.bash_aliases'
-alias valiases='vi /usr/local/etc/dotfiles/.bash_aliases && source /usr/local/etc/dotfiles/.bash_aliases'
-alias bashrc='more ~/.bashrc'
-alias vbashrc='vi /usr/local/etc/dotfiles/.bashrc && source /usr/local/etc/dotfiles/.bashrc'
-alias vrc='vi ~/.vimrc'
+alias aliases='more /vagrant/dotfiles/.bash_aliases'
+alias valiases='vi /vagrant/dotfiles/.bash_aliases && source /vagrant/dotfiles/.bash_aliases'
+alias bashrc='more /vagrant/dotfiles/.bashrc'
+alias vbashrc='vi /vagrant/dotfiles/.bashrc && source /vagrant/dotfiles/.bashrc'
+alias vrc='sudo vi /vagrant/dotfiles/.vimrc'
+
+
+alias Areload='sudo apache2ctl reload'
+alias Arestart='sudo apache2ctl restart'
+alias Astop='sudo apache2ctl stop'
+alias Astart='sudo apache2ctl start'
+alias Aconfigtest='sudo apache2ctl configtest'
+
+
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -49,13 +58,13 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 alias sshr="ssh -R 2224:localhost:2224"
 
 # sug
-alias sug='cd /srv/www/virthosts/sugdev'
+alias sug='cd /var/www/sugdev'
 alias vsug='sug && vi'
 alias vsugdocs='cd ~/devdocs/sug && vi'
 
 # dotfiles
-alias psdotfiles='cd /usr/local/etc/dotfiles && ./gpush.sh'
-alias pldotfiles='cd /usr/local/etc/dotfiles && git pull'
+alias psdotfiles='cd /vagrant/dotfiles && ./gpush.sh'
+alias pldotfiles='cd /vagrant/dotfiles && git pull'
 
 # devdocs
 alias psdevdocs='cd ~/devdocs && ./gpush.sh'
