@@ -3,5 +3,5 @@ if [ -f ~/.drush_bashrc ] ; then
 fi
 
 if [ -f ~/drush.complete.sh ] ; then
-    . ~/.drush.complete.sh
+    . ~/drush.complete.sh
 fi
